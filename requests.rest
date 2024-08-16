@@ -1,0 +1,40 @@
+POST http://localhost:5000/clip
+Content-Type: application/json
+
+{
+    "url": "./280.mp4",
+    "options": {
+    "start": 0,
+    "end": 1,
+        "blurredBackground": true,
+        "resolution": 1080,
+        "captions": [{
+            "text": "I'm a cheater 😁",
+            "start": 0, 
+            "end": 10,
+            "x": 350,
+            "y": 100,
+            "fontSize": 50,
+            "padding": [50, 45],
+            "borderRadius": 15,
+            "style": "blackWhite"
+        }],
+        "layouts": [ {
+            "label": "content",
+            "frame": {
+                "width": 1920,
+                "height": 1080,
+                "x": 0,
+                "y": 0
+            },
+            "crop": {
+                "ParentWidth": 1080,
+                "ParentHeight": 1920,
+                "width": 500,
+                "height": 600,
+                "x": 300,
+                "y": 0
+            }
+        }]
+    }
+}
