@@ -7,9 +7,12 @@ export default async function combineFrames(
 ) {
   const bluredImage = await Jimp.read(bluredFrame);
 
-  layouts.map((layout) => {
-    bluredImage.composite(layout.image, layout.frame.x, layout.frame.y);
-  });
+  await Promise.all(
+    layouts.map(async (layout) => {
+      const image = await Jimp.read(layout.image);
+      bluredImage.composite(image, layout.frame.x, layout.frame.y);
+    })
+  );
 
   return bluredImage;
 }

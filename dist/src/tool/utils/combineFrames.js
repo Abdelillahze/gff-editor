@@ -16,9 +16,10 @@ const jimp_1 = __importDefault(require("jimp"));
 function combineFrames(bluredFrame, layouts) {
     return __awaiter(this, void 0, void 0, function* () {
         const bluredImage = yield jimp_1.default.read(bluredFrame);
-        layouts.map((layout) => {
-            bluredImage.composite(layout.image, layout.frame.x, layout.frame.y);
-        });
+        yield Promise.all(layouts.map((layout) => __awaiter(this, void 0, void 0, function* () {
+            const image = yield jimp_1.default.read(layout.image);
+            bluredImage.composite(image, layout.frame.x, layout.frame.y);
+        })));
         return bluredImage;
     });
 }

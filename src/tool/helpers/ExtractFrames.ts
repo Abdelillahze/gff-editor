@@ -44,7 +44,7 @@ class ExtractFrames extends Transform {
 
       const layouts = await Promise.all(
         this.options.layouts.map(async (layout) => {
-          return await getLayout(frame, layout);
+          return await getLayout(frame, layout, this.options.resolution);
         })
       );
       const contentLayout = layouts.find(

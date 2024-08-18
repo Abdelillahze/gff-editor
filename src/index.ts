@@ -22,8 +22,8 @@ app.post("/clip", async (req, res) => {
     const { url, options } = req.body;
     console.log(url, options);
 
-    await createVideo(url, options);
-    res.end("slm");
+    const resUrl = await createVideo(url, options);
+    res.end(resUrl);
   } catch (err) {
     console.log(err);
   }

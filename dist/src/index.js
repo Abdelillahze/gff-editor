@@ -30,8 +30,8 @@ app.post("/clip", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         console.log("slm");
         const { url, options } = req.body;
         console.log(url, options);
-        yield (0, createVideo_1.default)(url, options);
-        res.end("slm");
+        const resUrl = yield (0, createVideo_1.default)(url, options);
+        res.end(resUrl);
     }
     catch (err) {
         console.log(err);

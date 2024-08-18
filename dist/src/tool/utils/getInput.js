@@ -25,8 +25,7 @@ function getInput(url) {
                 case "youtube.com": {
                     const info = yield ytdl_core_1.default.getInfo(url.split(/=|&/g)[1]);
                     const format = ytdl_core_1.default.chooseFormat(info.formats, {
-                        filter: "audioandvideo",
-                        quality: "highestvideo",
+                        quality: "highest",
                     });
                     return format.url;
                 }

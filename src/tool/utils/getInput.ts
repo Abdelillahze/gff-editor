@@ -16,8 +16,7 @@ export default async function getInput(url: string) {
       case "youtube.com": {
         const info = await ytdl.getInfo(url.split(/=|&/g)[1]);
         const format = ytdl.chooseFormat(info.formats, {
-          filter: "audioandvideo",
-          quality: "highestvideo",
+          quality: "highest",
         });
 
         return format.url;

@@ -3,6 +3,8 @@ import Jimp from "jimp";
 interface ILayout {
   label: string;
   frame: {
+    ParentWidth: number;
+    ParentHeight: number;
     width: number;
     height: number;
     x: number;
@@ -26,7 +28,7 @@ interface ILayoutEdited {
     x: number;
     y: number;
   };
-  image: Jimp;
+  image: Buffer;
 }
 
 interface ICaption {

@@ -2,7 +2,7 @@ import Jimp from "jimp";
 import resizeFrames from "../helpers/resizeFrames";
 
 export default async function blurFrame(
-  frame: Jimp,
+  frame: Buffer,
   resolution: number,
   blurFrame: boolean
 ) {

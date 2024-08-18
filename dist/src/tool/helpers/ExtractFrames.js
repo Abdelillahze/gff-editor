@@ -43,7 +43,7 @@ class ExtractFrames extends stream_1.Transform {
                 }
                 const frame = yield jimp_1.default.read(this.buffer);
                 const layouts = yield Promise.all(this.options.layouts.map((layout) => __awaiter(this, void 0, void 0, function* () {
-                    return yield (0, getLayout_1.default)(frame, layout);
+                    return yield (0, getLayout_1.default)(frame, layout, this.options.resolution);
                 })));
                 const contentLayout = layouts.find((layout) => layout.label === "content");
                 const bluredFrame = yield (0, blurFrame_1.default)(contentLayout.image, this.options.resolution, this.options.blurredBackground);
